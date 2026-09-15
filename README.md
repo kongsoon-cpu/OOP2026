@@ -123,9 +123,41 @@ public class Homework1 {
 }
 ```
 ![](./image/homework4.png)
+
+### Homework5
+```java
+public class Homework1 {
+    public static void main(String[] args) {
+        int iterations = 100000; // 반복 횟수
+
+        // 1. Gregory–Leibniz Series
+        double piLeibniz = 0.0;
+        double sign = 1.0;
+        for (int i = 0; i < iterations; i++) {
+            double denominator = 2 * i + 1;
+            piLeibniz += sign * (4.0 / denominator);
+            sign = -sign; // 부호 반전 (+, -)
+        }
+
+        // 2. Madhava Series
+        double madhavaSum = 0.0;
+        for (int k = 0; k < iterations; k++) {
+            double term = Math.pow(-1.0 / 3.0, k) / (2 * k + 1);
+            madhavaSum += term;
+        }
+        double piMadhava = Math.sqrt(12) * madhavaSum;
+
+        // 결과 출력
+        System.out.println("Gregory-Leibniz 시리즈 결과: " + piLeibniz);
+        System.out.println("Madhava 시리즈 결과        : " + piMadhava);
+        System.out.println("자바 Math.PI 실제 값        : " + Math.PI);
+    }
+}
+```
+![](./image/homework5.png)
+
 ### Homework10
 ```java
-
 public class Homework10 {
     public static void main(String[] args) {
         // 기본값 설정 (명령어 인자가 부족할 경우 대비)
