@@ -55,6 +55,7 @@ public class Homework1 {
     }
 }
 ```
+![](./image/homework1.png)
 
 ### Homework10
 ```java
