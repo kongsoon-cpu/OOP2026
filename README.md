@@ -83,7 +83,7 @@ public class Homework2 {
 
 ### Homework3
 ```java
-public class Homework1 {
+public class Homework3 {
     public static void main(String[] args) {
         int n = 20;
         long a = 1; // 첫 번째 항
@@ -108,7 +108,7 @@ public class Homework1 {
 
 ### Homework4
 ```java
-public class Homework1 {
+public class Homework4 {
     public static void main(String[] args) {
         // 1부터 9까지 곱하는 수 (행)
         for (int i = 1; i <= 9; i++) {
@@ -126,7 +126,7 @@ public class Homework1 {
 
 ### Homework5
 ```java
-public class Homework1 {
+public class Homework5 {
     public static void main(String[] args) {
         int iterations = 100000; // 반복 횟수
 
@@ -158,7 +158,7 @@ public class Homework1 {
 
 ### Homework6
 ```java
-public class Homework1 {
+public class Homework6 {
     public static void main(String[] args) {
         int n = 7; // 출력할 행의 수
         int[][] binomial = new int[n][];
