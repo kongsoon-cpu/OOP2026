@@ -81,6 +81,31 @@ public class Homework2 {
 ```
 ![](./image/homework2.png)
 
+### Homework3
+```java
+public class Homework1 {
+    public static void main(String[] args) {
+        int n = 20;
+        long a = 1; // 첫 번째 항
+        long b = 1; // 두 번째 항
+
+        for (int i = 1; i <= n; i++) {
+            long next = a + b;
+            
+            // 소수점 계산을 위해 double형으로 변환 후 나눗셈
+            double ratio = (double) next / b;
+            
+            System.out.printf("%d/%d = %.3f\n", next, b, ratio);
+
+            // 다음 항 계산을 위한 값 갱신
+            a = b;
+            b = next;
+        }
+    }
+}
+```
+![](./image/homework3.png)
+
 ### Homework10
 ```java
 
