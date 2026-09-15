@@ -222,6 +222,54 @@ public class Homework6 {
 ```
 ![](./image/homework6.png)
 
+### Homework7
+```java
+public class Homework7 {
+    public static void main(String[] args) {
+        int[] data = new int[20];
+
+        // 1. 난수 생성 (0 ~ 99)
+        for (int i = 0; i < 20; i++) {
+            data[i] = (int) (Math.random() * 100);
+        }
+
+        // 정렬 전 배열 출력
+        System.out.println("=== 정렬 전 ===");
+        printArray(data);
+
+        // 2. 선택 정렬 (Selection Sort) 알고리즘
+        for (int i = 0; i < data.length - 1; i++) {
+            int minIndex = i; // 최솟값이 위치한 인덱스 저장
+
+            // i 이후의 요소들 중 가장 작은 값의 인덱스를 찾음
+            for (int j = i + 1; j < data.length; j++) {
+                if (data[j] < data[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            // 찾은 최솟값과 현재 위치(i)의 값을 교환 (Swap)
+            int temp = data[i];
+            data[i] = data[minIndex];
+            data[minIndex] = temp;
+        }
+
+        // 3. 정렬 후 배열 출력
+        System.out.println("\n=== 선택 정렬 후 (오름차순) ===");
+        printArray(data);
+    }
+
+    // 배열 출력용 메서드
+    private static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+}
+```
+![](./image/homework7.png)
+
 ### Homework10
 ```java
 public class Homework10 {
