@@ -126,4 +126,4 @@ public class Homework10 {
 }
 
 ```
-![](./image/homework10)
+![](./image/homework10.png)
