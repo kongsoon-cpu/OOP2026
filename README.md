@@ -106,6 +106,23 @@ public class Homework1 {
 ```
 ![](./image/homework3.png)
 
+### Homework4
+```java
+public class Homework1 {
+    public static void main(String[] args) {
+        // 1부터 9까지 곱하는 수 (행)
+        for (int i = 1; i <= 9; i++) {
+            // 1단부터 9단까지 (열)
+            for (int dan = 1; dan <= 9; dan++) {
+                // \t(탭)을 사용하여 열 간격을 일정하게 정렬
+                System.out.printf("%d*%d=%-2d\t", dan, i, dan * i);
+            }
+            System.out.println(); // 한 줄 출력이 끝나면 줄바꿈
+        }
+    }
+}
+```
+![](./image/homework4.png)
 ### Homework10
 ```java
 
