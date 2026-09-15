@@ -1,7 +1,64 @@
 # OOP2026
+### Homework1
+```java
+public class Homework1 {
+    public static void main(String[] args) {
+        int n = 10;
+
+        // 1. 좌하단 직각삼각형 (왼쪽 정렬, 밑으로 갈수록 길어짐)
+        System.out.println("--- 1. 좌하단 직각삼각형 ---");
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("#");
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+
+        // 2. 우하단 직각삼각형 (오른쪽 정렬, 밑으로 갈수록 길어짐)
+        System.out.println("--- 2. 우하단 직각삼각형 ---");
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("#");
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+
+        // 3. 좌상단 직각삼각형 (왼쪽 정렬, 밑으로 갈수록 짧아짐)
+        System.out.println("--- 3. 좌상단 직각삼각형 ---");
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("#");
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+
+        // 4. 우상단 직각삼각형 (오른쪽 정렬, 밑으로 갈수록 짧아짐)
+        System.out.println("--- 4. 우상단 직각삼각형 ---");
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("#");
+            }
+            System.out.println();
+        }
+    }
+}
+```
 
 ### Homework10
 ```java
+
 public class Homework10 {
     public static void main(String[] args) {
         // 기본값 설정 (명령어 인자가 부족할 경우 대비)
