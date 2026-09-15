@@ -156,6 +156,72 @@ public class Homework1 {
 ```
 ![](./image/homework5.png)
 
+### Homework6
+```java
+public class Homework1 {
+    public static void main(String[] args) {
+        int n = 7; // 출력할 행의 수
+        int[][] binomial = new int[n][];
+
+        // 1. 파스칼의 삼각형(이항계수) 배열 생성 및 계산
+        for (int i = 0; i < n; i++) {
+            binomial[i] = new int[i + 1];
+            binomial[i][0] = 1;       // 각 행의 첫 번째 값은 1
+            binomial[i][i] = 1;       // 각 행의 마지막 값은 1
+
+            // 가운데 값 계산: C(n, k) = C(n-1, k-1) + C(n-1, k)
+            for (int j = 1; j < i; j++) {
+                binomial[i][j] = binomial[i - 1][j - 1] + binomial[i - 1][j];
+            }
+        }
+
+        // 2. 파스칼의 삼각형 출력
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(binomial[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+
+        // 3. (a+b)^n 형태로 이항정리 전개식 출력 (n=2부터 4까지 예시 출력)
+        for (int power = 2; power <= 4; power++) {
+            System.out.print("(a+b)^" + power + "=");
+            
+            for (int k = 0; k <= power; k++) {
+                int coeff = binomial[power][k]; // 계수
+                int aExp = power - k;           // a의 지수
+                int bExp = k;                   // b의 지수
+
+                if (k > 0) System.out.print("+");
+
+                // 계수가 1인 경우 생략 (단, 항 전체에서 숫자가 사라지는 것을 방지)
+                if (coeff > 1) {
+                    System.out.print(coeff);
+                }
+
+                // a의 지수 표기
+                if (aExp == 1) {
+                    System.out.print("a");
+                } else if (aExp > 1) {
+                    System.out.print("a^" + aExp);
+                }
+
+                // b의 지수 표기
+                if (bExp == 1) {
+                    System.out.print("b");
+                } else if (bExp > 1) {
+                    System.out.print("b^" + bExp);
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+```
+![](./image/homework6.png)
+
 ### Homework10
 ```java
 public class Homework10 {
