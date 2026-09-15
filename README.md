@@ -270,6 +270,100 @@ public class Homework7 {
 ```
 ![](./image/homework7.png)
 
+### Homework8
+```java
+public class Homework8 {
+    public static void main(String[] args) {
+        int students = 30;
+        int subjects = 4; // 국, 영, 수, 과
+        
+        // 30명 학생, 4개 과목 성적 저장 2차원 배열
+        int[][] score = new int[students][subjects];
+
+        // 성적 헤더 출력
+        System.out.printf("%-4s %-5s %-5s %-5s %-5s %-5s\n", "번호", "국어", "영어", "수학", "과학", "총점");
+        System.out.println("------------------------------------");
+
+        for (int i = 0; i < students; i++) {
+            int sum = 0;
+
+            // 과목별 점수 생성 (0~100) 및 총점 계산
+            for (int j = 0; j < subjects; j++) {
+                score[i][j] = (int) (Math.random() * 101); // 0 ~ 100
+                sum += score[i][j];
+            }
+
+            // 학생 번호, 4과목 점수, 총점 출력
+            System.out.printf("%-4d %-5d %-5d %-5d %-5d %-5d\n", 
+                (i + 1), score[i][0], score[i][1], score[i][2], score[i][3], sum);
+        }
+    }
+}
+```
+![](./image/homework8.png)
+
+### Homework9
+```java
+public class Homework9 {
+    public static void main(String[] args) {
+        // 1. 정수 10진수 -> 2진수
+        System.out.println("=== 정수 10진수 -> 2진수 ===");
+        printDecToBin(257);
+        printDecToBin(128);
+
+        // 2. 정수 2진수 -> 10진수
+        System.out.println("\n=== 정수 2진수 -> 10진수 ===");
+        printBinToDec("101010");
+        printBinToDec("1110");
+
+        // 3. 실수 10진수 -> 2진수 (이미지 원리 적용)
+        System.out.println("\n=== 실수 10진수 -> 2진수 ===");
+        double[] decimals = {1.75, 1.625, 1.5625, 1.875, 13.875, 45.875, 1.9, 1.1};
+        for (double d : decimals) {
+            System.out.println("(" + d + ")_10 = (" + floatToBinary(d, 20) + ")_2");
+        }
+    }
+
+    // 10진수 정수를 2진수로 변환
+    public static void printDecToBin(int n) {
+        System.out.println("(" + n + ")_10 = (" + Integer.toBinaryString(n) + ")_2");
+    }
+
+    // 2진수 문자열을 10진수로 변환
+    public static void printBinToDec(String bin) {
+        System.out.println("(" + bin + ")_2 = (" + Integer.parseInt(bin, 2) + ")_10");
+    }
+
+    // 실수 10진수를 2진수 문자열로 변환 (정수부: 나누기, 소수부: 곱하기)
+    public static String floatToBinary(double number, int maxPrecision) {
+        int intPart = (int) number;            // 정수 부분
+        double fracPart = number - intPart;    // 소수 부분
+
+        // 정수 부분 2진수 변환 (2로 나누기 반복)
+        String intBinary = Integer.toBinaryString(intPart);
+
+        // 소수 부분 2진수 변환 (2를 곱하기 반복)
+        StringBuilder fracBinary = new StringBuilder();
+        int count = 0;
+        
+        while (fracPart > 0 && count < maxPrecision) {
+            fracPart *= 2;
+            int bit = (int) fracPart;
+            fracBinary.append(bit);
+            fracPart -= bit;
+            count++;
+        }
+
+        if (fracBinary.length() > 0) {
+            return intBinary + "." + fracBinary.toString();
+        } else {
+            return intBinary;
+        }
+    }
+}
+```
+![](./image/homework9.png)
+
 ### Homework10
 ```java
 public class Homework10 {
