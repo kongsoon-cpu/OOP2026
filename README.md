@@ -1,4 +1,6 @@
-# OOP2026public class Homework10 {
+# OOP2026
+```java
+public class Homework10 {
     public static void main(String[] args) {
         // 기본값 설정 (명령어 인자가 부족할 경우 대비)
         // 형식: histogram array_count max_value bin_size display_scale
@@ -63,3 +65,5 @@
         System.out.println("===============================");
     }
 }
+
+```
