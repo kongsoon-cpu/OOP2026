@@ -57,6 +57,30 @@ public class Homework1 {
 ```
 ![](./image/homework1.png)
 
+### Homework2
+```java
+
+public class Homework2 {
+    public static void main(String[] args) {
+        int n = 20;
+        int first = 1;
+        int second = 1;
+
+        System.out.print(first + " " + second + " ");
+
+        for (int i = 3; i <= n; i++) {
+            int next = first + second;
+            System.out.print(next + " ");
+            
+            // 다음 계산을 위한 값 교체
+            first = second;
+            second = next;
+        }
+    }
+}
+```
+![](./image/homework2.png)
+
 ### Homework10
 ```java
 
