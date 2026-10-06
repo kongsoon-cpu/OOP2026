@@ -499,7 +499,7 @@ public class Main {
 }
 
 ```
-![Alt homework11](./images/homework11.png)
+![](./image/homework11.png)
 
 ### Homework13
 ```java
@@ -544,7 +544,7 @@ public class Main {
     }
 }
 ```
-![Alt homework11](./images/homework13.png)
+![](./image/homework13.png)
 
 
 ### Homework14
@@ -708,8 +708,5 @@ public class Main {
 }
 
 ```
-![Alt homework11](./images/homework14.png)
+![](./image/homework14.png)
 
-
-```
-![](./image/homework10.png)
