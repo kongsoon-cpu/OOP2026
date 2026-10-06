@@ -430,7 +430,286 @@ public class Homework10 {
         }
         System.out.println("===============================");
     }
+### Homework11
+```java
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("데이터 개수 입력: ");
+        int array_count = sc.nextInt();
+        
+        int[] arr = new int[array_count];
+        
+   
+        for (int i = 0; i < array_count; i++) {
+            arr[i] = (int) (Math.random() * 100) + 1;
+        }
+        
+    
+        System.out.print("생성된 데이터: ");
+        for (int i = 0; i < array_count; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println("\n");
+        
+    
+        double sum = 0;
+        for (int i = 0; i < array_count; i++) {
+            sum += arr[i];
+        }
+        double arithmeticMean = sum / array_count;
+        
+    
+        double prod = 1.0;
+        for (int i = 0; i < array_count; i++) {
+            prod *= arr[i];
+        }
+        double geometricMean = Math.pow(prod, 1.0 / array_count);
+        
+      
+        double harmonicSum = 0;
+        for (int i = 0; i < array_count; i++) {
+            harmonicSum += 1.0 / arr[i];
+        }
+        double harmonicMean = array_count / harmonicSum;
+        
+      
+        int[] sortedArr = arr.clone();
+        Arrays.sort(sortedArr);
+        double median;
+        if (array_count % 2 == 1) {
+            median = sortedArr[array_count / 2];
+        } else {
+            median = (sortedArr[array_count / 2 - 1] + sortedArr[array_count / 2]) / 2.0;
+        }
+        
+      
+        System.out.println("=== [통계 계산 결과] ===");
+        System.out.printf("산술평균 (Arithmetic Mean) : %.4f\n", arithmeticMean);
+        System.out.printf("기하평균 (Geometric Mean)  : %.4f\n", geometricMean);
+        System.out.printf("조화평균 (Harmonic Mean)   : %.4f\n", harmonicMean);
+        System.out.printf("중앙값 (Median)            : %.4f\n", median);
+        
+        sc.close();
+    }
 }
+
+```
+![Alt homework11](./images/homework11.png)
+
+### Homework13
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            String inputString = scanner.nextLine();
+
+            String[] arrOfStr = inputString.split(" ");
+
+            int result = Integer.parseInt(arrOfStr[0]);
+
+            for (int i = 1; i < arrOfStr.length; i += 2) {
+                String operator = arrOfStr[i];
+                int number = Integer.parseInt(arrOfStr[i + 1]);
+
+                
+                if (operator.equals("#")) {
+                    operator = "*";
+                }
+
+                if (operator.equals("+")) {
+                    result = result + number;
+                }
+                else if (operator.equals("-")) {
+                    result = result - number;
+                }
+                else if (operator.equals("*")) {
+                    result = result * number;
+                }
+                else if (operator.equals("/")) {
+                    result = result / number;
+                }
+            }
+
+            System.out.println(result);
+        }
+    }
+}
+```
+![Alt homework11](./images/homework13.png)
+
+
+### Homework14
+```java
+import java.util.Arrays;
+
+public class Main {
+
+    static class Numbers {
+        int num[];
+
+        Numbers(int num[]) {
+            this.num = num;
+        }
+
+      
+        double getTotal() {
+            double sum = 0;
+
+            for (int i = 0; i < num.length; i++) {
+                sum += num[i];
+            }
+
+            return sum;
+        }
+
+    
+        double getArithmaticMean() {
+            return getTotal() / num.length;
+        }
+
+     
+        double getHarmonicMean() {
+            double sum = 0;
+
+            for (int i = 0; i < num.length; i++) {
+                if (num[i] != 0) {
+                    sum += 1.0 / num[i];
+                }
+            }
+
+            return num.length / sum;
+        }
+
+      
+        double getGeometricMean() {
+            double product = 1.0;
+
+            for (int i = 0; i < num.length; i++) {
+                product *= num[i];
+            }
+
+            return Math.pow(product, 1.0 / num.length);
+        }
+
+     
+        int getMedian() {
+            sorting();
+
+            int middle = num.length / 2;
+
+            if (num.length % 2 == 1) {
+                return num[middle];
+            }
+            else {
+                return (num[middle - 1] + num[middle]) / 2;
+            }
+        }
+
+        
+        void sorting() {
+            Arrays.sort(num);
+        }
+
+      
+        void drawHistogram(int start, int end, int binCount) {
+
+            int[] frequency = new int[binCount];
+
+            double interval = (double)(end - start) / binCount;
+
+          
+            for (int i = 0; i < num.length; i++) {
+
+                if (num[i] >= start && num[i] < end) {
+
+                    int index = (int)((num[i] - start) / interval);
+
+                    if (index >= 0 && index < binCount) {
+                        frequency[index]++;
+                    }
+                }
+            }
+
+            System.out.println();
+            System.out.println("도수분포표");
+            System.out.println("-----------------------------");
+
+            for (int i = 0; i < binCount; i++) {
+
+                int binStart = (int)(start + i * interval);
+                int binEnd = (int)(start + (i + 1) * interval);
+
+                System.out.printf("%2d ~ %2d : ", binStart, binEnd - 1);
+
+                for (int j = 0; j < frequency[i]; j++) {
+                    System.out.print("*");
+                }
+
+                System.out.println(" (" + frequency[i] + ")");
+            }
+
+            System.out.println("-----------------------------");
+        }
+
+
+        void display() {
+            System.out.printf("%3d :", num.length);
+
+            for (int i = 0; i < num.length; i++) {
+                System.out.printf("%3d ", num[i]);
+            }
+
+            System.out.println();
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+        int size = 100;
+
+        int data[] = new int[size];
+
+     
+        for (int i = 0; i < size; i++) {
+            data[i] = (int)(Math.random() * 100);
+        }
+
+        Numbers obj = new Numbers(data);
+
+        
+        obj.display();
+
+        
+        System.out.printf("Arithmetic Mean : %5.2f\n",
+                obj.getArithmaticMean());
+
+        System.out.printf("Geometric Mean  : %5.2f\n",
+                obj.getGeometricMean());
+
+        System.out.printf("Harmonic Mean   : %5.2f\n",
+                obj.getHarmonicMean());
+
+        System.out.printf("Median          : %d\n",
+                obj.getMedian());
+
+       
+        obj.drawHistogram(0, 100, 10);
+    }
+}
+
+```
+![Alt homework11](./images/homework14.png)
+
 
 ```
 ![](./image/homework10.png)
